@@ -1,0 +1,213 @@
+﻿<Page x:Class="PR8_1_.GradesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Оценки">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок -->
+        <TextBlock Grid.Row="0" Text="📊 Успеваемость" 
+                   FontSize="24" FontWeight="Bold" 
+                   Foreground="#2C3E50" Margin="0,0,0,20"/>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Детальные оценки -->
+            <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto" 
+                          Margin="0,0,20,0">
+                <StackPanel>
+                    <!-- Математика -->
+                    <Border  Margin="0,0,0,15">
+                        <StackPanel>
+                            <TextBlock x:Name="MathSubjectText" Text="Математический анализ" 
+                                       FontSize="18" FontWeight="SemiBold" 
+                                       Foreground="#2C3E50" Margin="0,0,0,15"/>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="100"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Text="Задание" FontWeight="SemiBold" 
+                                           Foreground="#666" Margin="0,0,0,10"/>
+                                <TextBlock Grid.Column="1" Text="Оценка" 
+                                           FontWeight="SemiBold" Foreground="#666" 
+                                           Margin="0,0,0,10" HorizontalAlignment="Center"/>
+                                <TextBlock Grid.Column="2" Text="Макс. балл" 
+                                           FontWeight="SemiBold" Foreground="#666" 
+                                           Margin="0,0,0,10" HorizontalAlignment="Center"/>
+                                <TextBlock Grid.Column="3" Text="Дата" 
+                                           FontWeight="SemiBold" Foreground="#666" 
+                                           Margin="0,0,0,10" HorizontalAlignment="Center"/>
+                            </Grid>
+
+                            <Rectangle Height="1" Fill="#EEE" Margin="0,0,0,10"/>
+
+                            <!-- Оценки -->
+                            <Grid Margin="0,0,0,5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="100"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Text="Контрольная работа 1" VerticalAlignment="Center"/>
+                                <TextBlock x:Name="MathScore1" Grid.Column="1" Text="85" 
+                                           Foreground="#27AE60" FontWeight="SemiBold"
+                                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Grid.Column="2" Text="100" 
+                                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Grid.Column="3" Text="10.12.2023" 
+                                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+
+                            <Grid Margin="0,0,0,5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="100"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Text="Домашнее задание 2" VerticalAlignment="Center"/>
+                                <TextBlock x:Name="MathScore2" Grid.Column="1" Text="92" 
+                                           Foreground="#27AE60" FontWeight="SemiBold"
+                                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Grid.Column="2" Text="100" 
+                                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Grid.Column="3" Text="05.12.2023" 
+                                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Программирование -->
+                    <Border  Margin="0,0,0,15">
+                        <StackPanel>
+                            <TextBlock x:Name="ProgrammingSubjectText" Text="Программирование на C#" 
+                                       FontSize="18" FontWeight="SemiBold" 
+                                       Foreground="#2C3E50" Margin="0,0,0,15"/>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="100"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Text="Проект: Калькулятор" VerticalAlignment="Center"/>
+                                <TextBlock x:Name="ProgrammingScore1" Grid.Column="1" Text="95" 
+                                           Foreground="#27AE60" FontWeight="SemiBold"
+                                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Grid.Column="2" Text="100" 
+                                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Grid.Column="3" Text="03.12.2023" 
+                                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+
+                            <Grid Margin="0,10,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="100"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Text="Лабораторная работа 3" VerticalAlignment="Center"/>
+                                <TextBlock x:Name="ProgrammingScore2" Grid.Column="1" Text="88" 
+                                           Foreground="#27AE60" FontWeight="SemiBold"
+                                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Grid.Column="2" Text="100" 
+                                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Grid.Column="3" Text="01.12.2023" 
+                                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Базы данных -->
+                    <Border  Margin="0,0,0,15">
+                        <StackPanel>
+                            <TextBlock x:Name="DatabaseSubjectText" Text="Базы данных" 
+                                       FontSize="18" FontWeight="SemiBold" 
+                                       Foreground="#2C3E50" Margin="0,0,0,15"/>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="100"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Text="SQL запросы" VerticalAlignment="Center"/>
+                                <TextBlock x:Name="DatabaseScore1" Grid.Column="1" Text="78" 
+                                           Foreground="#E74C3C" FontWeight="SemiBold"
+                                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Grid.Column="2" Text="100" 
+                                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Grid.Column="3" Text="28.11.2023" 
+                                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
+
+            <!-- Статистика -->
+            <StackPanel Grid.Column="1">
+                <!-- Средний балл -->
+                <Border  Margin="0,0,0,15">
+                    <StackPanel>
+                        <TextBlock Text="📈 Средний балл" 
+                                   FontSize="16" FontWeight="SemiBold" 
+                                   Margin="0,0,0,10"/>
+
+                        <Border x:Name="AverageScoreBorder" Background="#3498DB" Width="80" Height="80" 
+                                CornerRadius="40" HorizontalAlignment="Center">
+                            <TextBlock x:Name="AverageScoreText" Text="4.7" Foreground="White" 
+                                       FontSize="24" FontWeight="Bold"
+                                       HorizontalAlignment="Center" 
+                                       VerticalAlignment="Center"/>
+                        </Border>
+
+                        <TextBlock Text="из 5.0" HorizontalAlignment="Center" 
+                                   Margin="0,5,0,0" Foreground="#666"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Прогресс -->
+                <Border >
+                    <StackPanel>
+                        <TextBlock Text="🎯 Прогресс семестра" 
+                                   FontSize="16" FontWeight="SemiBold" 
+                                   Margin="0,0,0,10"/>
+
+                        <TextBlock x:Name="ProgressPercentText" Text="65%" FontSize="20" FontWeight="Bold" 
+                                   Foreground="#3498DB" HorizontalAlignment="Center"/>
+
+                        <ProgressBar x:Name="SemesterProgressBar" Value="65" Height="15" Margin="0,10,0,0"
+                                   Background="#E9ECEF" Foreground="#3498DB"/>
+
+                        <TextBlock x:Name="DaysRemainingText" Text="До конца семестра: 45 дней" 
+                                   FontSize="12" Foreground="#666" 
+                                   HorizontalAlignment="Center" Margin="0,10,0,0"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

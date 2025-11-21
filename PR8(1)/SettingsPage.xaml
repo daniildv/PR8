@@ -1,0 +1,259 @@
+﻿<Page x:Class="PR8_1_.SettingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Настройки">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="20">
+            <TextBlock Text="⚙️ Настройки приложения" 
+                       FontSize="24" FontWeight="Bold" 
+                       Foreground="#2C3E50" Margin="0,0,0,30"/>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Левая панель - навигация -->
+                <StackPanel Grid.Column="0" Margin="0,0,20,0">
+                    <Border >
+                        <StackPanel>
+                            <TextBlock Text="Категории настроек" 
+                                       FontSize="16" FontWeight="SemiBold" 
+                                       Margin="0,0,0,10"/>
+
+                            <ListBox x:Name="SettingsCategories" 
+                                     BorderThickness="0" 
+                                     Background="Transparent"
+                                     SelectionChanged="SettingsCategories_SelectionChanged">
+                                <ListBoxItem Tag="general" IsSelected="True">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="⚙️" Margin="0,0,10,0"/>
+                                        <TextBlock Text="Основные"/>
+                                    </StackPanel>
+                                </ListBoxItem>
+                                <ListBoxItem Tag="notifications">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="🔔" Margin="0,0,10,0"/>
+                                        <TextBlock Text="Уведомления"/>
+                                    </StackPanel>
+                                </ListBoxItem>
+                                <ListBoxItem Tag="privacy">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="🔒" Margin="0,0,10,0"/>
+                                        <TextBlock Text="Конфиденциальность"/>
+                                    </StackPanel>
+                                </ListBoxItem>
+                                <ListBoxItem Tag="appearance">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="🎨" Margin="0,0,10,0"/>
+                                        <TextBlock Text="Внешний вид"/>
+                                    </StackPanel>
+                                </ListBoxItem>
+                                <ListBoxItem Tag="about">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="ℹ️" Margin="0,0,10,0"/>
+                                        <TextBlock Text="О программе"/>
+                                    </StackPanel>
+                                </ListBoxItem>
+                            </ListBox>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+
+                <!-- Правая панель - содержимое настроек -->
+                <StackPanel Grid.Column="1">
+                    <!-- Основные настройки -->
+                    <Border x:Name="GeneralSettings"  Margin="0,0,0,15">
+                        <StackPanel>
+                            <TextBlock Text="⚙️ Основные настройки" 
+                                       FontSize="18" FontWeight="SemiBold" 
+                                       Margin="0,0,0,15"/>
+
+                            <StackPanel>
+                                <CheckBox Content="Автоматический вход в систему" 
+                                          IsChecked="True" Margin="0,0,0,10"/>
+                                <CheckBox Content="Запоминать последнюю открытую страницу" 
+                                          IsChecked="True" Margin="0,0,0,10"/>
+                                <CheckBox Content="Авто-обновление данных" 
+                                          IsChecked="True" Margin="0,0,0,10"/>
+                                <CheckBox Content="Синхронизация в фоновом режиме" 
+                                          IsChecked="False" Margin="0,0,0,15"/>
+
+                                <Button Content="Очистить кеш приложения" 
+                                        Background="Transparent" 
+                                        BorderBrush="#E74C3C" BorderThickness="1"
+                                        Foreground="#E74C3C" Padding="10,5"
+                                         FontSize="12"
+                                        HorizontalAlignment="Left"
+                                        Click="ClearCache_Click"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Настройки уведомлений -->
+                    <Border x:Name="NotificationSettings"  
+                            Margin="0,0,0,15" Visibility="Collapsed">
+                        <StackPanel>
+                            <TextBlock Text="🔔 Настройки уведомлений" 
+                                       FontSize="18" FontWeight="SemiBold" 
+                                       Margin="0,0,0,15"/>
+
+                            <StackPanel>
+                                <CheckBox Content="Push-уведомления" 
+                                          IsChecked="True" Margin="0,0,0,10"/>
+                                <CheckBox Content="Email уведомления" 
+                                          IsChecked="True" Margin="0,0,0,10"/>
+                                <CheckBox Content="SMS уведомления" 
+                                          IsChecked="False" Margin="0,0,0,10"/>
+                                <CheckBox Content="Уведомления о новых заданиях" 
+                                          IsChecked="True" Margin="0,0,0,10"/>
+                                <CheckBox Content="Уведомления об оценках" 
+                                          IsChecked="True" Margin="0,0,0,10"/>
+                                <CheckBox Content="Уведомления о расписании" 
+                                          IsChecked="True" Margin="0,0,0,10"/>
+                                <CheckBox Content="Уведомления о сообщениях" 
+                                          IsChecked="True" Margin="0,0,0,15"/>
+
+                                <TextBlock Text="Время тишины:" 
+                                           FontWeight="SemiBold" Margin="0,0,0,5"/>
+                                <ComboBox SelectedIndex="0" Margin="0,0,0,15">
+                                    <ComboBoxItem Content="Отключено"/>
+                                    <ComboBoxItem Content="22:00 - 08:00"/>
+                                    <ComboBoxItem Content="23:00 - 07:00"/>
+                                    <ComboBoxItem Content="Полностью отключить звук"/>
+                                </ComboBox>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Конфиденциальность -->
+                    <Border x:Name="PrivacySettings"  
+                            Margin="0,0,0,15" Visibility="Collapsed">
+                        <StackPanel>
+                            <TextBlock Text="🔒 Конфиденциальность" 
+                                       FontSize="18" FontWeight="SemiBold" 
+                                       Margin="0,0,0,15"/>
+
+                            <StackPanel>
+                                <CheckBox Content="Сбор анонимной статистики использования" 
+                                          IsChecked="True" Margin="0,0,0,10"/>
+                                <CheckBox Content="Показывать меня онлайн" 
+                                          IsChecked="True" Margin="0,0,0,10"/>
+                                <CheckBox Content="Разрешить отправку отзывов" 
+                                          IsChecked="True" Margin="0,0,0,10"/>
+                                <CheckBox Content="Сохранять историю поиска" 
+                                          IsChecked="False" Margin="0,0,0,15"/>
+
+                                <Button Content="Экспорт моих данных" 
+                                        Background="Transparent" 
+                                        BorderBrush="#3498DB" BorderThickness="1"
+                                        Foreground="#3498DB" Padding="10,5"
+                                         FontSize="12"
+                                        HorizontalAlignment="Left" Margin="0,0,10,0"/>
+
+                                <Button Content="Удалить мои данные" 
+                                        Background="Transparent" 
+                                        BorderBrush="#E74C3C" BorderThickness="1"
+                                        Foreground="#E74C3C" Padding="10,5"
+                                         FontSize="12"
+                                        HorizontalAlignment="Left"
+                                        Click="DeleteData_Click"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Внешний вид -->
+                    <Border x:Name="AppearanceSettings"  
+                            Margin="0,0,0,15" Visibility="Collapsed">
+                        <StackPanel>
+                            <TextBlock Text="🎨 Внешний вид" 
+                                       FontSize="18" FontWeight="SemiBold" 
+                                       Margin="0,0,0,15"/>
+
+                            <StackPanel>
+                                <TextBlock Text="Тема:" 
+                                           FontWeight="SemiBold" Margin="0,0,0,5"/>
+                                <ComboBox SelectedIndex="0" Margin="0,0,0,15">
+                                    <ComboBoxItem Content="Системная"/>
+                                    <ComboBoxItem Content="Светлая"/>
+                                    <ComboBoxItem Content="Темная"/>
+                                </ComboBox>
+
+                                <TextBlock Text="Размер шрифта:" 
+                                           FontWeight="SemiBold" Margin="0,0,0,5"/>
+                                <ComboBox SelectedIndex="1" Margin="0,0,0,15">
+                                    <ComboBoxItem Content="Маленький"/>
+                                    <ComboBoxItem Content="Стандартный"/>
+                                    <ComboBoxItem Content="Большой"/>
+                                    <ComboBoxItem Content="Очень большой"/>
+                                </ComboBox>
+
+                                <CheckBox Content="Компактный режим" 
+                                          IsChecked="False" Margin="0,0,0,10"/>
+                                <CheckBox Content="Показывать анимации" 
+                                          IsChecked="True" Margin="0,0,0,10"/>
+                                <CheckBox Content="Высокий контраст" 
+                                          IsChecked="False" Margin="0,0,0,15"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- О программе -->
+                    <Border x:Name="AboutSettings"  
+                            Margin="0,0,0,15" Visibility="Collapsed">
+                        <StackPanel>
+                            <TextBlock Text="ℹ️ О программе" 
+                                       FontSize="18" FontWeight="SemiBold" 
+                                       Margin="0,0,0,15"/>
+
+                            <StackPanel>
+                                <TextBlock Text="Электронный университет v1.0.0" 
+                                           FontWeight="SemiBold" FontSize="16"
+                                           Margin="0,0,0,10"/>
+                                <TextBlock Text="Приложение для студентов и преподавателей" 
+                                           Foreground="#666" Margin="0,0,0,15"/>
+
+                                <TextBlock Text="© 2024 Университет. Все права защищены." 
+                                           FontSize="12" Foreground="#999" Margin="0,0,0,10"/>
+                                <TextBlock Text="Лицензия: Academic Free License" 
+                                           FontSize="12" Foreground="#999" Margin="0,0,0,15"/>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Content="Проверить обновления" 
+                                            Background="#3498DB" Foreground="White"
+                                            BorderThickness="0" Padding="10,5"
+                                             FontSize="12"
+                                            Click="CheckUpdates_Click"/>
+                                    <Button Content="Политика конфиденциальности" 
+                                            Background="Transparent" 
+                                            BorderBrush="#3498DB" BorderThickness="1"
+                                            Foreground="#3498DB" Padding="10,5"
+                                             FontSize="12"
+                                            Margin="10,0,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Кнопки действий -->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button Content="Сбросить настройки" 
+                                Background="Transparent" 
+                                BorderBrush="#E74C3C" BorderThickness="1"
+                                Foreground="#E74C3C" Padding="15,8"
+                                 FontWeight="SemiBold"
+                                Click="ResetSettings_Click"/>
+                        <Button Content="Сохранить изменения" 
+                                Background="#3498DB" Foreground="White"
+                                BorderThickness="0" Padding="15,8"
+                                 FontWeight="SemiBold"
+                                Margin="10,0,0,0"
+                                Click="SaveSettings_Click"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

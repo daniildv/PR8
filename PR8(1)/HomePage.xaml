@@ -1,0 +1,112 @@
+﻿<Page x:Class="PR8_1_.HomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Главная страница">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="20">
+            <!-- Приветствие -->
+            <TextBlock Text="Добро пожаловать!" 
+                       FontSize="24" FontWeight="Bold" 
+                       Foreground="#2C3E50" Margin="0,0,0,20"/>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Основной контент -->
+                <StackPanel Grid.Column="0" Margin="0,0,20,0">
+                    <!-- Ближайшие события -->
+                    <Border >
+                        <StackPanel>
+                            <TextBlock Text="📅 Ближайшие события" 
+                                       FontSize="18" FontWeight="SemiBold" 
+                                       Foreground="#2C3E50" Margin="0,0,0,15"/>
+
+                            <StackPanel>
+                                <Border Background="#E8F4FD" CornerRadius="5" Padding="10" Margin="0,0,0,10">
+                                    <StackPanel>
+                                        <TextBlock Text="Математика - Лекция" FontWeight="SemiBold"/>
+                                        <TextBlock Text="Сегодня, 10:00 - Аудитория 301" Foreground="#666"/>
+                                    </StackPanel>
+                                </Border>
+
+                                <Border Background="#E8F4FD" CornerRadius="5" Padding="10" Margin="0,0,0,10">
+                                    <StackPanel>
+                                        <TextBlock Text="Программирование - Практика" FontWeight="SemiBold"/>
+                                        <TextBlock Text="Завтра, 14:00 - Компьютерный класс" Foreground="#666"/>
+                                    </StackPanel>
+                                </Border>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Предстоящие тесты -->
+                    <Border  Margin="0,15,0,0">
+                        <StackPanel>
+                            <TextBlock Text="📊 Предстоящие тесты" 
+                                       FontSize="18" FontWeight="SemiBold" 
+                                       Foreground="#2C3E50" Margin="0,0,0,15"/>
+
+                            <StackPanel>
+                                <Border Background="#FFF3CD" CornerRadius="5" Padding="10" Margin="0,0,0,10">
+                                    <StackPanel>
+                                        <TextBlock Text="Тест по базам данных" FontWeight="SemiBold"/>
+                                        <TextBlock Text="До 15 декабря" Foreground="#666"/>
+                                        <ProgressBar Value="65" Height="8" Margin="0,5,0,0" 
+                                                   Background="#E9ECEF" Foreground="#3498DB"/>
+                                    </StackPanel>
+                                </Border>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+
+                <!-- Боковая панель -->
+                <StackPanel Grid.Column="1">
+                    <!-- Быстрый доступ -->
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Text="🚀 Быстрый доступ" 
+                                       FontSize="16" FontWeight="SemiBold" 
+                                       Margin="0,0,0,10"/>
+
+                            <Button Content="Мои курсы" Background="#3498DB" 
+                                    Foreground="White" Padding="10" Margin="0,5" 
+                                    BorderThickness="0" Click="Button_Click"/>
+                            <Button Content="Расписание" Background="#27AE60" 
+                                    Foreground="White" Padding="10" Margin="0,5" 
+                                    BorderThickness="0" Click="Button_Click_1" />
+                            <Button Content="Сообщения" Background="#E74C3C" 
+                                    Foreground="White" Padding="10" Margin="0,5" 
+                                    BorderThickness="0" Click="Button_Click_2" />
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Уведомления -->
+                    <Border Margin="0,15,0,0">
+                        <StackPanel>
+                            <TextBlock Text="🔔 Уведомления" 
+                                       FontSize="16" FontWeight="SemiBold" 
+                                       Margin="0,0,0,10"/>
+
+                            <TextBlock Text="Новое задание по веб-разработке" 
+                                       FontSize="12" TextWrapping="Wrap"/>
+                            <TextBlock Text="2 часа назад" FontSize="10" 
+                                       Foreground="#666" Margin="0,5,0,10"/>
+
+                            <Rectangle Height="1" Fill="#EEE" Margin="0,5"/>
+
+                            <TextBlock Text="Обновление расписания" 
+                                       FontSize="12" TextWrapping="Wrap"/>
+                            <TextBlock Text="Вчера" FontSize="10" 
+                                       Foreground="#666" Margin="0,5,0,0"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

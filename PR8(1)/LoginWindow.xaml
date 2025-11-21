@@ -1,0 +1,244 @@
+﻿<Window x:Class="PR8_1_.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Вход в систему - Электронный университет" 
+        Height="500" Width="400"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        Background="White">
+
+    <Window.Resources>
+        <Style x:Key="LoginButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#3498DB"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="20,12"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#2980B9"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="#BDC3C7"/>
+                    <Setter Property="Foreground" Value="#7F8C8D"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="TextFieldStyle" TargetType="TextBox">
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="#BDC3C7"/>
+            <Setter Property="Padding" Value="15,12"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Background" Value="#F8F9FA"/>
+            <Style.Triggers>
+                <Trigger Property="IsFocused" Value="True">
+                    <Setter Property="BorderBrush" Value="#3498DB"/>
+                    <Setter Property="Background" Value="White"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="PasswordFieldStyle" TargetType="PasswordBox">
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="#BDC3C7"/>
+            <Setter Property="Padding" Value="15,12"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Background" Value="#F8F9FA"/>
+            <Style.Triggers>
+                <Trigger Property="IsFocused" Value="True">
+                    <Setter Property="BorderBrush" Value="#3498DB"/>
+                    <Setter Property="Background" Value="White"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Border BorderBrush="#E0E0E0" BorderThickness="1">
+        <Grid>
+            <!-- Фон с градиентом -->
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#2C3E50" Offset="0"/>
+                    <GradientStop Color="#3498DB" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Заголовок окна -->
+            <Border Grid.Row="0" Background="#1A252F" Padding="20,15">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" Orientation="Horizontal">
+                        <Image Source="C:\Users\ddv270208\Downloads\UbuntuCoF.svg.png" 
+                               Width="32" Height="32" 
+                               Stretch="Uniform" Margin="0,0,10,0"/>
+                        <TextBlock Text="Электронный университет" 
+                                   Foreground="White" 
+                                   FontSize="16" 
+                                   FontWeight="Bold"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+
+                    <!-- Кнопка закрытия -->
+                    <Button Grid.Column="1" Content="✕" 
+                            Background="Transparent" 
+                            Foreground="White"
+                            BorderThickness="0"
+                            FontSize="14"
+                            Width="30" Height="30"
+                            Click="CloseButton_Click"/>
+                </Grid>
+            </Border>
+
+            <!-- Основная область входа -->
+            <Border Grid.Row="1" Background="White" 
+                    Margin="20" CornerRadius="10"
+                    VerticalAlignment="Center">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel Margin="30" VerticalAlignment="Center">
+
+                        <!-- Заголовок формы -->
+                        <TextBlock Text="Вход в систему" 
+                                   FontSize="24" 
+                                   FontWeight="Bold"
+                                   Foreground="#2C3E50"
+                                   HorizontalAlignment="Center"
+                                   Margin="0,0,0,30"/>
+
+                        <!-- Поле логина -->
+                        <StackPanel Margin="0,0,0,20">
+                            <TextBlock Text="Логин / Email" 
+                                       FontWeight="SemiBold"
+                                       Foreground="#2C3E50"
+                                       Margin="0,0,0,5"/>
+                            <TextBox x:Name="UsernameTextBox" 
+                                     Style="{StaticResource TextFieldStyle}"/>
+                        </StackPanel>
+
+                        <!-- Поле пароля -->
+                        <StackPanel Margin="0,0,0,25">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="Пароль" 
+                                           FontWeight="SemiBold"
+                                           Foreground="#2C3E50"
+                                           Margin="0,0,0,5"/>
+                                <TextBlock Grid.Column="1" 
+                                           Text="Забыли пароль?"
+                                           Foreground="#3498DB"
+                                           FontSize="12"
+                                           Cursor="Hand"
+                                           MouseLeftButtonDown="ForgotPassword_MouseLeftButtonDown"/>
+                            </Grid>
+                            <PasswordBox x:Name="PasswordBox" 
+                                         Style="{StaticResource PasswordFieldStyle}"
+                                         PasswordChanged="LoginFields_TextChanged"/>
+                        </StackPanel>
+
+                        <!-- Чекбокс "Запомнить меня" -->
+                        <CheckBox x:Name="RememberMeCheckBox" 
+                                  Content="Запомнить меня"
+                                  Foreground="#2C3E50"
+                                  Margin="0,0,0,25"
+                                  IsChecked="True"/>
+
+                        <!-- Кнопка входа -->
+                        <Button x:Name="LoginButton" 
+                                Content="Войти в систему"
+                                Style="{StaticResource LoginButtonStyle}"
+                                Click="LoginButton_Click"
+                                IsEnabled="False"/>
+
+                        <!-- Разделитель -->
+                        <Grid Margin="0,25,0,20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Rectangle Grid.Column="0" Height="1" Fill="#E0E0E0" VerticalAlignment="Center"/>
+                            <TextBlock Grid.Column="1" Text="или" Foreground="#7F8C8D" Margin="10,0" FontSize="12"/>
+                            <Rectangle Grid.Column="2" Height="1" Fill="#E0E0E0" VerticalAlignment="Center"/>
+                        </Grid>
+
+                        <!-- Альтернативные способы входа -->
+                        <StackPanel>
+                            <Button Content="Войти через личный кабинет вуза" 
+                                    Background="Transparent"
+                                    BorderBrush="#3498DB"
+                                    BorderThickness="1"
+                                    Foreground="#3498DB"
+                                    Padding="15,10"
+                                    FontSize="13"
+                                    FontWeight="SemiBold"
+                                    Margin="0,0,0,10"
+                                    Click="UniversityAccountButton_Click"/>
+
+                            <Button Content="Войти как гость" 
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    Foreground="#7F8C8D"
+                                    Padding="15,8"
+                                    FontSize="12"
+                                    Margin="0,5,0,0"
+                                    Click="GuestLoginButton_Click"/>
+                        </StackPanel>
+
+                        <!-- Сообщение об ошибке -->
+                        <Border x:Name="ErrorMessageBorder" 
+                                Background="#FDEDED" 
+                                BorderBrush="#F5B7B1"
+                                BorderThickness="1"
+                                CornerRadius="5"
+                                Padding="15,10"
+                                Margin="0,20,0,0"
+                                Visibility="Collapsed">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="⚠️" FontSize="14" Margin="0,0,10,0"/>
+                                <TextBlock x:Name="ErrorMessageText" 
+                                           Foreground="#C0392B"
+                                           FontSize="13"
+                                           TextWrapping="Wrap"/>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Прогресс бар (скрыт по умолчанию) -->
+                        <Border x:Name="ProgressBorder" 
+                                Background="#E8F4FD" 
+                                BorderBrush="#3498DB"
+                                BorderThickness="1"
+                                CornerRadius="5"
+                                Padding="15"
+                                Margin="0,20,0,0"
+                                Visibility="Collapsed">
+                            <StackPanel Orientation="Horizontal">
+                                <ProgressBar IsIndeterminate="True" 
+                                             Width="20" Height="20"
+                                             Margin="0,0,10,0"/>
+                                <TextBlock Text="Выполняется вход..." 
+                                           Foreground="#3498DB"
+                                           FontSize="13"
+                                           VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+        </Grid>
+    </Border>
+</Window>

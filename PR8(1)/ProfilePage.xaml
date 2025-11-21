@@ -1,0 +1,207 @@
+﻿<Page x:Class="PR8_1_.ProfilePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Профиль">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="20">
+            <TextBlock Text="👤 Мой профиль" 
+                       FontSize="24" FontWeight="Bold" 
+                       Foreground="#2C3E50" Margin="0,0,0,20"/>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Левая панель - информация профиля -->
+                <StackPanel Grid.Column="0" Margin="0,0,20,0">
+                    <!-- Аватар и основная информация -->
+                    <Border >
+                        <StackPanel>
+                            <Border x:Name="AvatarBorder" Width="120" Height="120" CornerRadius="60" 
+                                    Background="#3498DB" HorizontalAlignment="Center"
+                                    Margin="0,0,0,15">
+                                <TextBlock x:Name="AvatarText" Text="ИП" Foreground="White" 
+                                           FontSize="32" FontWeight="Bold"
+                                           HorizontalAlignment="Center" 
+                                           VerticalAlignment="Center"/>
+                            </Border>
+
+                            <TextBlock x:Name="ProfileNameText" Text="Иван Петров" FontSize="20" 
+                                       FontWeight="SemiBold" HorizontalAlignment="Center"
+                                       Margin="0,0,0,5"/>
+                            <TextBlock x:Name="ProfileRoleText" Text="Студент" Foreground="#666" 
+                                       HorizontalAlignment="Center" Margin="0,0,0,5"/>
+                            <TextBlock x:Name="ProfileGroupText" Text="Группа: ИВТ-21" Foreground="#666" 
+                                       HorizontalAlignment="Center" Margin="0,0,0,15"/>
+
+                            <Button Content="Редактировать профиль" 
+                                    Background="#3498DB" Foreground="White"
+                                    BorderThickness="0" Padding="15,8"
+                                     FontWeight="SemiBold"
+                                    HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Контактная информация -->
+                    <Border  Margin="0,15,0,0">
+                        <StackPanel>
+                            <TextBlock Text="📞 Контакты" 
+                                       FontSize="16" FontWeight="SemiBold" 
+                                       Margin="0,0,0,10"/>
+
+                            <StackPanel>
+                                <TextBlock Text="📧 Email:" FontWeight="SemiBold" 
+                                           Foreground="#666" FontSize="12"/>
+                                <TextBlock x:Name="EmailText" Text="i.petrov@university.ru" 
+                                           Margin="0,2,0,10"/>
+
+                                <TextBlock Text="📱 Телефон:" FontWeight="SemiBold" 
+                                           Foreground="#666" FontSize="12"/>
+                                <TextBlock x:Name="PhoneText" Text="+7 (912) 345-67-89" 
+                                           Margin="0,2,0,10"/>
+
+                                <TextBlock Text="🏠 Адрес:" FontWeight="SemiBold" 
+                                           Foreground="#666" FontSize="12"/>
+                                <TextBlock x:Name="AddressText" Text="ул. Студенческая, 15, кв. 42" 
+                                           Margin="0,2,0,0" TextWrapping="Wrap"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+
+                <!-- Правая панель - детальная информация -->
+                <StackPanel Grid.Column="1">
+                    <!-- Академическая информация -->
+                    <Border  Margin="0,0,0,15">
+                        <StackPanel>
+                            <TextBlock Text="🎓 Академическая информация" 
+                                       FontSize="18" FontWeight="SemiBold" 
+                                       Margin="0,0,0,15"/>
+
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="200"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Row="0" Grid.Column="0" Text="Факультет:" 
+                                           FontWeight="SemiBold" Foreground="#666"/>
+                                <TextBlock x:Name="FacultyText" Grid.Row="0" Grid.Column="1" Text="Информационных технологий"/>
+
+                                <TextBlock Grid.Row="1" Grid.Column="0" Text="Специальность:" 
+                                           FontWeight="SemiBold" Foreground="#666" Margin="0,10,0,0"/>
+                                <TextBlock x:Name="SpecialtyText" Grid.Row="1" Grid.Column="1" Text="Информатика и вычислительная техника" Margin="0,10,0,0"/>
+
+                                <TextBlock Grid.Row="2" Grid.Column="0" Text="Курс:" 
+                                           FontWeight="SemiBold" Foreground="#666" Margin="0,10,0,0"/>
+                                <TextBlock x:Name="CourseText" Grid.Row="2" Grid.Column="1" Text="2" Margin="0,10,0,0"/>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Статистика обучения -->
+                    <Border  Margin="0,0,0,15">
+                        <StackPanel>
+                            <TextBlock Text="📊 Статистика обучения" 
+                                       FontSize="18" FontWeight="SemiBold" 
+                                       Margin="0,0,0,15"/>
+
+                            <WrapPanel>
+                                <!-- Карточка статистики 1 -->
+                                <Border  Width="200" 
+                                        Height="120" Margin="0,0,15,15">
+                                    <StackPanel>
+                                        <TextBlock x:Name="AverageScoreText" Text="4.7" FontSize="28" 
+                                                   FontWeight="Bold" 
+                                                   Foreground="#3498DB"
+                                                   HorizontalAlignment="Center"/>
+                                        <TextBlock Text="Средний балл" 
+                                                   FontSize="12" Foreground="#666"
+                                                   HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Border>
+
+                                <!-- Карточка статистики 2 -->
+                                <Border  Width="200" 
+                                        Height="120" Margin="0,0,15,15">
+                                    <StackPanel>
+                                        <TextBlock x:Name="AttendanceText" Text="85%" FontSize="28" 
+                                                   FontWeight="Bold" 
+                                                   Foreground="#27AE60"
+                                                   HorizontalAlignment="Center"/>
+                                        <TextBlock Text="Посещаемость" 
+                                                   FontSize="12" Foreground="#666"
+                                                   HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Border>
+
+                                <!-- Карточка статистики 3 -->
+                                <Border  Width="200" 
+                                        Height="120" Margin="0,0,15,15">
+                                    <StackPanel>
+                                        <TextBlock x:Name="CompletedCoursesText" Text="12" FontSize="28" 
+                                                   FontWeight="Bold" 
+                                                   Foreground="#E74C3C"
+                                                   HorizontalAlignment="Center"/>
+                                        <TextBlock Text="Завершено курсов" 
+                                                   FontSize="12" Foreground="#666"
+                                                   HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Border>
+
+                                <!-- Карточка статистики 4 -->
+                                <Border  Width="200" 
+                                        Height="120" Margin="0,0,0,15">
+                                    <StackPanel>
+                                        <TextBlock x:Name="CurrentCoursesText" Text="3" FontSize="28" 
+                                                   FontWeight="Bold" 
+                                                   Foreground="#9B59B6"
+                                                   HorizontalAlignment="Center"/>
+                                        <TextBlock Text="Текущих курса" 
+                                                   FontSize="12" Foreground="#666"
+                                                   HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Border>
+                            </WrapPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Настройки -->
+                    <Border >
+                        <StackPanel>
+                            <TextBlock Text="⚙️ Настройки" 
+                                       FontSize="18" FontWeight="SemiBold" 
+                                       Margin="0,0,0,15"/>
+
+                            <StackPanel>
+                                <CheckBox Content="Email уведомления" IsChecked="True" 
+                                          Margin="0,0,0,10"/>
+                                <CheckBox Content="SMS уведомления" IsChecked="False" 
+                                          Margin="0,0,0,10"/>
+                                <CheckBox Content="Push-уведомления" IsChecked="True" 
+                                          Margin="0,0,0,10"/>
+                                <CheckBox Content="Авто-загрузка материалов" IsChecked="True" 
+                                          Margin="0,0,0,10"/>
+
+                                <Button Content="Сменить пароль" 
+                                        Background="Transparent" 
+                                        BorderBrush="#3498DB" BorderThickness="1"
+                                        Foreground="#3498DB" Padding="10,5"
+                                         Margin="0,10,0,0"
+                                        HorizontalAlignment="Left"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </ScrollViewer>
+</Page>
