@@ -150,7 +150,7 @@ namespace PR8_1_
             var page = new EventsPage();
             MainFrame.Content = page;
         }
-
+        
         private void LoadProfilePage()
         {
             var page = new ProfilePage();
